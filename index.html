@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubre Woufi, collares personalizados para perros y gatos. Diseños originales que celebran la personalidad de tu mascota.">
+  <meta name="theme-color" content="#4A291C">
+  <title>Collares personalizados para perros y gatos | Woufi</title>
+  <style>
+    :root {
+      --brown: #4A291C;
+      --cream: #FFF9EF;
+      --green: #586B4D;
+      --gold: #F2B544;
+      --ink: #33241e;
+      --muted: #74665d;
+      --white: #fff;
+      --line: #e9dfd2;
+      --shadow: 0 16px 42px rgba(74, 41, 28, .10);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1160px, calc(100% - 36px)); margin-inline: auto; }
+    .announcement { background: var(--green); color: white; text-align: center; padding: 9px 16px; font-size: .84rem; letter-spacing: .02em; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,249,239,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(74,41,28,.08); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:78px; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:900; color:var(--brown); letter-spacing:-.04em; font-size:1.7rem; }
+    .brand img { width:54px; height:54px; object-fit:cover; border-radius:50%; }
+    .nav-links { display:flex; gap:25px; align-items:center; }
+    .nav-links a { text-decoration:none; font-size:.92rem; font-weight:650; }
+    .nav-links a:hover { color:var(--green); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; border:0; border-radius:999px; padding:14px 22px; background:var(--brown); color:white; font-weight:800; text-decoration:none; cursor:pointer; transition:transform .2s, background .2s; }
+    .btn:hover { transform:translateY(-2px); background:#603a2b; }
+    .btn.gold { background:var(--gold); color:var(--brown); }
+    .btn.outline { background:transparent; border:1px solid var(--brown); color:var(--brown); }
+    .hero { padding:54px 0 68px; overflow:hidden; }
+    .hero-grid { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:52px; }
+    .eyebrow { color:var(--green); font-size:.78rem; font-weight:900; text-transform:uppercase; letter-spacing:.16em; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { color:var(--brown); font-size:clamp(2.65rem, 5.4vw, 5rem); line-height:1.02; letter-spacing:-.065em; margin:15px 0 22px; }
+    h1 em { font-style:normal; color:var(--green); }
+    .hero-copy { max-width:540px; color:var(--muted); font-size:1.08rem; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin:28px 0 24px; }
+    .trust-row { display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:.88rem; }
+    .trust-row span:before { content:"✓"; color:var(--green); font-weight:900; margin-right:7px; }
+    .hero-art { position:relative; }
+    .hero-art:before { content:""; position:absolute; inset:7% -3% -3% 8%; background:#f2e5d2; border-radius:48% 48% 28px 28px; transform:rotate(3deg); }
+    .hero-image { position:relative; width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:48% 48% 28px 28px; box-shadow:var(--shadow); }
+    .floating-note { position:absolute; left:-22px; bottom:24px; max-width:190px; padding:16px 18px; background:white; border-radius:17px; box-shadow:var(--shadow); font-size:.88rem; }
+    .floating-note strong { display:block; color:var(--brown); }
+    .section { padding:76px 0; }
+    .section.white { background:#fffdf9; }
+    .section-head { max-width:680px; margin:0 auto 38px; text-align:center; }
+    h2 { color:var(--brown); font-size:clamp(2rem, 4vw, 3.2rem); line-height:1.1; letter-spacing:-.045em; margin:12px 0 14px; }
+    .section-head p { color:var(--muted); }
+    .benefit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .benefit { background:white; border:1px solid var(--line); padding:26px; border-radius:var(--radius); }
+    .benefit-icon { width:48px; height:48px; display:grid; place-items:center; border-radius:16px; background:#edf0e8; font-size:1.4rem; margin-bottom:17px; }
+    .benefit h3 { color:var(--brown); margin-bottom:8px; }
+    .benefit p { color:var(--muted); margin-bottom:0; font-size:.95rem; }
+    .product-grid { display:grid; grid-template-columns: .9fr 1.1fr; gap:48px; align-items:center; }
+    .product-photo { width:100%; border-radius:var(--radius); box-shadow:var(--shadow); }
+    .product-copy p { color:var(--muted); }
+    .price { font-size:1.75rem; color:var(--brown); font-weight:900; margin:15px 0 4px; }
+    .pending { display:inline-block; color:#6e4d00; background:#fff0c8; padding:5px 10px; border-radius:999px; font-size:.75rem; font-weight:800; }
+    .feature-list { list-style:none; padding:0; margin:22px 0; }
+    .feature-list li { margin:10px 0; }
+    .feature-list li:before { content:"✓"; color:var(--green); font-weight:900; margin-right:10px; }
+    .customizer { background:white; border:1px solid var(--line); border-radius:var(--radius); padding:24px; margin-top:25px; box-shadow:0 8px 24px rgba(74,41,28,.05); }
+    .customizer h3 { color:var(--brown); margin-bottom:18px; }
+    .field { margin-bottom:16px; }
+    .field label { display:block; font-weight:800; font-size:.9rem; margin-bottom:7px; }
+    .field input, .field select { width:100%; border:1px solid #d8c9ba; border-radius:12px; padding:12px 13px; background:#fffdf9; color:var(--ink); }
+    .swatches { display:flex; gap:10px; flex-wrap:wrap; }
+    .swatch { width:35px; height:35px; border-radius:50%; border:3px solid white; box-shadow:0 0 0 1px #cdbfb0; cursor:pointer; }
+    .swatch[aria-pressed="true"] { box-shadow:0 0 0 3px var(--brown); }
+    .preview-tag { display:flex; align-items:center; gap:12px; padding:13px 16px; background:var(--cream); border-radius:14px; margin:18px 0; }
+    .preview-chip { height:20px; width:64px; border-radius:999px; background:#b8a0b6; }
+    .preview-tag strong { color:var(--brown); }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; counter-reset:steps; }
+    .step { background:#f5eee4; padding:22px; border-radius:20px; }
+    .step:before { counter-increment:steps; content:"0" counter(steps); display:block; color:var(--green); font-weight:900; font-size:1.3rem; margin-bottom:12px; }
+    .step h3 { color:var(--brown); font-size:1rem; margin-bottom:7px; }
+    .step p { color:var(--muted); font-size:.9rem; margin-bottom:0; }
+    .faq-list { max-width:820px; margin:auto; }
+    details { border-bottom:1px solid var(--line); padding:19px 0; }
+    summary { cursor:pointer; color:var(--brown); font-weight:850; list-style:none; display:flex; justify-content:space-between; gap:20px; }
+    summary:after { content:"+"; color:var(--green); font-size:1.4rem; line-height:1; }
+    details[open] summary:after { content:"−"; }
+    details p { margin:12px 0 0; color:var(--muted); }
+    .cta { background:var(--green); color:white; border-radius:30px; padding:clamp(28px,5vw,60px); display:flex; justify-content:space-between; align-items:center; gap:30px; }
+    .cta h2 { color:white; max-width:650px; }
+    .cta p { color:#e7eadf; margin-bottom:0; max-width:600px; }
+    footer { padding:36px 0; background:#352018; color:#f8eee2; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+    footer a { color:#f8eee2; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; font-size:.9rem; }
+    .small { font-size:.78rem; color:#cdbfb2; }
+    .notice { font-size:.82rem; color:var(--muted); margin-top:14px; }
+    .mobile-buy { display:none; }
+    @media (max-width:850px) {
+      .nav-links { display:none; }
+      .hero-grid, .product-grid { grid-template-columns:1fr; gap:32px; }
+      .hero { padding-top:38px; }
+      .hero-art { max-width:620px; margin:auto; }
+      .benefit-grid { grid-template-columns:1fr 1fr; }
+      .steps { grid-template-columns:1fr 1fr; }
+      .cta { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width:540px) {
+      .container { width:min(100% - 28px, 1160px); }
+      .brand { font-size:1.45rem; }
+      .brand img { width:45px; height:45px; }
+      .nav { min-height:66px; }
+      .nav > .btn { padding:10px 14px; font-size:.83rem; }
+      .hero { padding:30px 0 48px; }
+      .hero-grid { gap:35px; }
+      .hero-actions .btn { width:100%; }
+      .floating-note { left:8px; bottom:12px; max-width:170px; padding:12px; }
+      .section { padding:55px 0; }
+      .benefit-grid, .steps { grid-template-columns:1fr; }
+      .customizer { padding:18px; }
+      .cta .btn { width:100%; }
+      .mobile-buy { display:block; position:fixed; z-index:30; bottom:10px; left:12px; right:12px; }
+      .mobile-buy .btn { width:100%; box-shadow:0 8px 30px #4a291c55; }
+      footer { padding-bottom:85px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *:before, *:after { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <div class="announcement">Diseñado para celebrar lo que hace única a tu mascota 🐾</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Woufi, ir al inicio"><img src="assets/woufi-logo.png" alt="Logo Woufi"><span>woufi</span></a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#beneficios">Beneficios</a><a href="#producto">El collar</a><a href="#personaliza">Personalízalo</a><a href="#faq">Preguntas frecuentes</a>
+      </nav>
+      <a class="btn" href="#personaliza">Crear mi collar <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Accesorios con personalidad</div>
+          <h1>Su nombre.<br>Su estilo.<br><em>Su historia.</em></h1>
+          <p class="hero-copy">Un collar personalizado que celebra el vínculo que compartís. Diseñado para que cada paseo tenga un poquito más de personalidad.</p>
+          <div class="hero-actions">
+            <a class="btn gold" href="#personaliza">Personaliza su collar <span aria-hidden="true">→</span></a>
+            <a class="btn outline" href="#producto">Descubrir Woufi</a>
+          </div>
+          <div class="trust-row"><span>Personalización con su nombre</span><span>Diseño para el día a día</span></div>
+        </div>
+        <div class="hero-art">
+          <img class="hero-image" src="assets/collares-woufi.png" alt="Colección de collares personalizados Woufi para perros y gatos">
+          <div class="floating-note"><strong>Pequeños detalles,</strong> grandes historias. Diseña un accesorio tan único como él o ella.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="beneficios">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Mucho más que un collar</div>
+          <h2>Hecho para su personalidad</h2>
+          <p>Para quienes saben que una mascota no es “solo una mascota”: es familia, compañía y una parte enorme de cada día.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit"><div class="benefit-icon" aria-hidden="true">✦</div><h3>Un detalle único</h3><p>Personaliza el diseño con el nombre de tu compañero y convierte un básico diario en algo especial.</p></article>
+          <article class="benefit"><div class="benefit-icon" aria-hidden="true">♡</div><h3>Estilo que encaja</h3><p>Explora una paleta de colores suaves y atemporales para encontrar el estilo que más se parece a su personalidad.</p></article>
+          <article class="benefit"><div class="benefit-icon" aria-hidden="true">⌁</div><h3>Pensado para el día a día</h3><p>Elige la talla adecuada y revisa el ajuste antes de usarlo para priorizar la comodidad de tu mascota.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="producto">
+      <div class="container product-grid">
+        <div><img class="product-photo" src="assets/collares-woufi.png" alt="Detalles de collares en tonos lavanda, verde salvia, terracota y azul"></div>
+        <div class="product-copy">
+          <div class="eyebrow">Conoce el producto</div>
+          <h2>Su nombre, siempre con él</h2>
+          <p>Los collares Woufi combinan una estética cuidada con una personalización que pone a tu mascota en el centro. Elige un color, añade su nombre y crea un accesorio con identidad propia.</p>
+          <div class="price">Desde 24,90 € <span class="pending">Precio por confirmar</span></div>
+          <p class="notice">Precio de lanzamiento orientativo facilitado para el proyecto. Pendiente de validación antes de publicar.</p>
+          <ul class="feature-list">
+            <li>Personalización con el nombre de tu mascota.</li>
+            <li>Colores y modelos sujetos al catálogo disponible.</li>
+            <li>Opciones para perros y gatos, según modelo.</li>
+            <li>Posibilidad de añadir datos de identificación, si el modelo lo permite.</li>
+          </ul>
+          <a class="btn" href="#personaliza">Personalizar ahora <span aria-hidden="true">→</span></a>
+          <p class="notice">Materiales, medidas, resistencia, herrajes y opciones finales deben confirmarse con el catálogo real de Woufi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="personaliza">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Diseña el suyo</div>
+          <h2>Personaliza su collar</h2>
+          <p>Prueba una combinación y visualiza el nombre antes de preparar tu consulta. Esta vista previa es orientativa y no envía un pedido.</p>
+        </div>
+        <div class="product-grid">
+          <div>
+            <img class="product-photo" src="assets/collares-woufi.png" alt="Inspiración de colores para la personalización de un collar">
+            <div class="preview-tag" aria-live="polite">
+              <span class="preview-chip" id="previewColor"></span>
+              <div><strong id="previewName">LUNA</strong><div class="small" style="color:#74665d">Vista previa de personalización</div></div>
+            </div>
+          </div>
+          <div class="customizer">
+            <h3>Cuéntanos cómo lo imaginas</h3>
+            <div class="field"><label for="petType">¿Para quién es?</label><select id="petType"><option value="Perro">Perro</option><option value="Gato">Gato</option></select></div>
+            <div class="field"><label for="petName">Nombre de tu mascota</label><input id="petName" type="text" maxlength="14" placeholder="Ej. Luna" value="Luna" autocomplete="off"></div>
+            <div class="field"><label>Elige un color</label><div class="swatches" role="group" aria-label="Colores de collar">
+              <button class="swatch" type="button" style="background:#b8a0b6" aria-label="Lavanda" data-color="#b8a0b6" aria-pressed="true"></button>
+              <button class="swatch" type="button" style="background:#8d9b7b" aria-label="Verde salvia" data-color="#8d9b7b" aria-pressed="false"></button>
+              <button class="swatch" type="button" style="background:#b66d50" aria-label="Terracota" data-color="#b66d50" aria-pressed="false"></button>
+              <button class="swatch" type="button" style="background:#9bb5c2" aria-label="Azul cielo" data-color="#9bb5c2" aria-pressed="false"></button>
+            </div></div>
+            <div class="field"><label for="contactEmail">Tu email (opcional)</label><input id="contactEmail" type="email" placeholder="tu@email.com" autocomplete="email"></div>
+            <div class="field"><label for="notes">Notas (opcional)</label><input id="notes" type="text" maxlength="180" placeholder="Talla aproximada, dudas o detalles"></div>
+            <button class="btn" id="contactBtn" type="button">Consultar disponibilidad <span aria-hidden="true">↗</span></button>
+            <p class="notice">La personalización no constituye una compra ni confirma stock. Al continuar, se abrirá un mensaje de consulta para Woufi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Así de fácil</div><h2>De su nombre a su nuevo favorito</h2><p>Una experiencia sencilla para crear un accesorio que se sienta suyo.</p></div>
+        <div class="steps">
+          <article class="step"><h3>Elige para quién</h3><p>Selecciona perro o gato y piensa en sus necesidades.</p></article>
+          <article class="step"><h3>Escoge el estilo</h3><p>Selecciona un color y el modelo disponible que más te guste.</p></article>
+          <article class="step"><h3>Añade su nombre</h3><p>Comprueba que el nombre esté escrito correctamente.</p></article>
+          <article class="step"><h3>Confirma los detalles</h3><p>Consulta tallas, precio final, envío y plazo antes de comprar.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="faq">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Resolvemos tus dudas</div><h2>Preguntas frecuentes</h2><p>La información comercial definitiva se confirmará antes de abrir la venta.</p></div>
+        <div class="faq-list">
+          <details><summary>¿Puedo personalizar el collar con el nombre de mi mascota?</summary><p>Sí, la propuesta de Woufi contempla personalizar el collar con el nombre. La longitud máxima y las opciones de grabado deben confirmarse según el modelo.</p></details>
+          <details><summary>¿Qué tallas y colores hay disponibles?</summary><p>La colección visual muestra tonos lavanda, verde salvia, terracota y azul. La disponibilidad de colores, tallas y medidas está pendiente de confirmación con el catálogo real.</p></details>
+          <details><summary>¿Los collares son adecuados para perros y gatos?</summary><p>La propuesta contempla modelos para perros y gatos. Antes de comprar, confirma que el modelo, el cierre y la talla sean apropiados para tu mascota.</p></details>
+          <details><summary>¿Cuánto cuesta y cuánto tarda el envío?</summary><p>El precio orientativo del proyecto parte de 24,90 €, pendiente de validación. Los costes y plazos de envío todavía deben confirmarse.</p></details>
+          <details><summary>¿Puedo devolver un collar personalizado?</summary><p>Las condiciones de cambios y devoluciones están pendientes de definición y deberán publicarse conforme a la normativa aplicable antes de la venta.</p></details>
+          <details><summary>¿Cómo puedo consultar o hacer un pedido?</summary><p>Usa el botón de consulta de esta página para enviar los detalles de la personalización. La consulta no confirma por sí sola una compra ni disponibilidad.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div><div class="eyebrow" style="color:#f2b544">Woufi · Accesorios con identidad</div><h2>Porque no hay nadie como él. Ni como ella.</h2><p>Empieza a imaginar su collar personalizado y consulta las opciones disponibles para tu compañero de aventuras.</p></div>
+          <a class="btn gold" href="#personaliza">Crear su collar <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><a class="brand" href="#inicio" style="color:#fff9ef"><img src="assets/woufi-logo.png" alt="" aria-hidden="true"><span>woufi</span></a><div class="small">Personaliza su estilo, celebra su esencia.</div></div>
+      <div class="footer-links"><a href="#producto">Producto</a><a href="#faq">FAQ</a><a href="mailto:laboratorionebrija@gmail.com">Contacto</a></div>
+      <div class="small">© <span id="year"></span> Woufi. Información comercial pendiente de validación.</div>
+    </div>
+  </footer>
+  <div class="mobile-buy"><a class="btn gold" href="#personaliza">Personaliza su collar</a></div>
+
+  <script>
+    const nameInput = document.getElementById('petName');
+    const previewName = document.getElementById('previewName');
+    const previewColor = document.getElementById('previewColor');
+    const swatches = [...document.querySelectorAll('.swatch')];
+    let selectedColor = '#b8a0b6';
+
+    function updatePreview() {
+      const value = nameInput.value.trim();
+      previewName.textContent = (value || 'SU NOMBRE').toLocaleUpperCase('es-ES');
+    }
+    nameInput.addEventListener('input', updatePreview);
+    swatches.forEach(button => button.addEventListener('click', () => {
+      selectedColor = button.dataset.color;
+      previewColor.style.background = selectedColor;
+      swatches.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    }));
+    document.getElementById('contactBtn').addEventListener('click', () => {
+      const petType = document.getElementById('petType').value;
+      const petName = nameInput.value.trim() || 'Sin indicar';
+      const email = document.getElementById('contactEmail').value.trim() || 'No indicado';
+      const notes = document.getElementById('notes').value.trim() || 'Sin notas';
+      const subject = encodeURIComponent('Consulta sobre collar personalizado Woufi');
+      const body = encodeURIComponent(
+        'Hola Woufi:\n\nQuiero consultar disponibilidad para un collar personalizado.\n' +
+        'Mascota: ' + petType + '\nNombre: ' + petName + '\nColor de referencia: ' + selectedColor +
+        '\nEmail de contacto: ' + email + '\nNotas: ' + notes +
+        '\n\n¿Podéis confirmarme modelos, tallas, precio final y envío?\n'
+      );
+      window.location.href = 'mailto:laboratorionebrija@gmail.com?subject=' + subject + '&body=' + body;
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
